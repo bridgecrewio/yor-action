@@ -12,27 +12,29 @@ Yor applies tags to your infrastructure allowing easier governance, ownership an
 ```yaml
 jobs:
   yor-job:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
       - name: Run yor action
-        uses: bridgecrewio/yor-action@master
+        uses: bridgecrewio/yor-action@main
       - name: Commit tag changes
         uses: stefanzweifel/git-auto-commit-action@v4
 ```
 
-Note that this example uses the latest version (`master`).
+Note that this example uses the latest version (`main`).
 
 ### Complex Examples
 #### Using tag + tag_groups Parameters
 ```yaml
 jobs:
   yor-job:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
       - name: Run yor action
-        uses: bridgecrewio/yor-action@master
+        uses: bridgecrewio/yor-action@main
         with:
           directory: path/to/iac
           skip_directory: test
@@ -49,11 +51,12 @@ jobs:
 ```yaml
 jobs:
   yor-job:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
       - name: Run yor action
-        uses: bridgecrewio/yor-action@master
+        uses: bridgecrewio/yor-action@main
         with:
           directory: path/to/iac
           skip_directory: test

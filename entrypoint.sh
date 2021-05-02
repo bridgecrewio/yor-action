@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Actions pass inputs as $INPUT_<input name> environmet variables
 
 [[ -n "$INPUT_TAG_GROUPS" ]] && TAG_GROUPS="--tag-groups $INPUT_TAG_GROUPS"
@@ -10,6 +11,6 @@
 [[ -n "$INPUT_LOG_LEVEL" ]] && export LOG_LEVEL=$INPUT_LOG_LEVEL
 
 echo "running yot on directory: $INPUT_DIRECTORY"
-/go/yor -d "$INPUT_DIRECTORY" "$TAG_FLAG" "$TAG_GROUPS" "$SKIP_TAG_FLAG" "$SKIP_DIR_FLAG" "$EXT_TAGS_FLAG" "$OUTPUT_FLAG"
+/go/yor/yor -d "$INPUT_DIRECTORY" "$TAG_FLAG" "$TAG_GROUPS" "$SKIP_TAG_FLAG" "$SKIP_DIR_FLAG" "$EXT_TAGS_FLAG" "$OUTPUT_FLAG"
 YOR_EXIT_CODE=$?
 exit $YOR_EXIT_CODE
