@@ -13,7 +13,7 @@ jobs:
           # update yor version
           yor_version=$(curl -sL https://api.github.com/repos/bridgecrewio/yor/tags | jq -r '.[0]["name"]' )
           echo "version = '$yor_version'"
-          sed -i -E 's/FROM bridgecrewio\/yor:.*$/FROM bridgecrewio\/yor:'"$VERSION"'/' Dockerfile
+          sed -i -E 's/yor:.*$/yor:'"$yor_version"'/' Dockerfile
           git config --global user.name 'GitHub Action'
           git config --global user.email 'action@github.com'
           git add Dockerfile
