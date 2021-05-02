@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Run yor action
         uses: bridgecrewio/yor-action@main
       - name: Commit tag changes
@@ -33,6 +35,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Run yor action
         uses: bridgecrewio/yor-action@main
         with:
@@ -55,6 +59,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Run yor action
         uses: bridgecrewio/yor-action@main
         with:
