@@ -1,0 +1,26 @@
+name: build
+on: repository_dispatch
+
+jobs:
+  update-yor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: update release
+        run: |
+          # update yor version
+          yor_version=$(curl -sL https://api.github.com/repos/bridgecrewio/yor/tags | jq -r '.[0]["name"]' )
+          echo "version = '$yor_version'"
+          sed -i -E 's/FROM bridgecrewio\/yor:.*$/FROM bridgecrewio\/yor:'"$VERSION"'/' Dockerfile
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git add Dockerfile
+          git commit -m "Update yor version to '$yor_version'"
+          git push
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.34.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true

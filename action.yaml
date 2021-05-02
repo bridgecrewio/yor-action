@@ -1,0 +1,45 @@
+name: 'Yor GitHub Action'
+description: 'Run Yor against IaC templates as a pre-packaged GitHub Action.'
+inputs:
+  directory:
+    description: 'directory with infrastructure code to scan'
+    default: '.'
+    required: false
+  tag_groups:
+    description: 'Run scan on all checks but a specific check identifier (comma separated)'
+    required: false
+  tag:
+    description: 'comma delimited list of yor tags to apply'
+    required: false
+  skip_tags:
+    description: 'comma delimited list of yor tags to not apply'
+    required: false
+  skip_dirs:
+    description: 'comma delimited list of paths for yor to skip tagging of'
+    required: false
+  custom_tags:
+    description: 'comma delimited list of paths to external (custom) tags & tag groups plugins'
+    required: false
+  output_format:
+    description: 'The format of the output. cli, json'
+    required: false
+  log_level:
+    description: 'log level'
+    required: false
+
+branding:
+  icon: 'shield'
+  color: 'purple'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.directory }}
+    - ${{ inputs.tag_groups }}
+    - ${{ inputs.tag }}
+    - ${{ inputs.skip_tags }}
+    - ${{ inputs.skip_dirs }}
+    - ${{ inputs.custom_tags }}
+    - ${{ inputs.output_format }}
+    - ${{ inputs.log_level }}
