@@ -20,8 +20,6 @@ jobs:
           fetch-depth: 0
       - name: Run yor action
         uses: bridgecrewio/yor-action@main
-      - name: Commit tag changes
-        uses: stefanzweifel/git-auto-commit-action@v4
 ```
 
 Note that this example uses the latest version (`main`).
@@ -47,8 +45,6 @@ jobs:
           tag_groups: git,code2cloud
           custom_tags: path/to/plugin.so
           output_format: json
-      - name: Commit tag changes
-        uses: stefanzweifel/git-auto-commit-action@v4
 ```
 
 #### Using skip_tags + tag_groups Parameters
@@ -73,4 +69,19 @@ jobs:
           output_format: json
       - name: Commit tag changes
         uses: stefanzweifel/git-auto-commit-action@v4
+```
+#### Committing at your own timing instead of right after the tags were updated:
+```yaml
+jobs:
+  yor-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Run yor action
+        uses: bridgecrewio/yor-action@main
+        with:
+          commit_changes: NO # Any value which is not YES (which is the default value) will lead to no commit
 ```
