@@ -34,8 +34,8 @@ then
     git push origin
   fi
 else
-  echo "exiting, yor failed or commit is skipped"
-  echo "yor exit code: $YOR_EXIT_CODE"
-  echo "commit_changes: $INPUT_COMMIT_CHANGES"
+  echo "::debug::exiting, yor failed or commit is skipped"
+  echo "::debug::yor exit code: $YOR_EXIT_CODE"
+  echo "::debug::commit_changes: $INPUT_COMMIT_CHANGES"
   exit $YOR_EXIT_CODE
 fi
