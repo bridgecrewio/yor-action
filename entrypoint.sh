@@ -25,12 +25,17 @@ if [[ $YOR_EXIT_CODE -eq 0 && $INPUT_COMMIT_CHANGES != "YES" ]]
 then
   if _git_is_dirty
   then
+    echo "Git is dirty"
     git add .
     git -c user.name=actions@github.com -c user.email="GitHub Actions" \
         commit -m "Update tags (by Yor)" \
         --author="github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>" ;
+    echo "Changes committed, pushing..."
     git push origin
   fi
 else
+  echo "exiting, yor failed or commit is skipped"
+  echo "yor exit code: $YOR_EXIT_CODE"
+  echo "commit_changes: $INPUT_COMMIT_CHANGES"
   exit $YOR_EXIT_CODE
 fi
