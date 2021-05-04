@@ -21,7 +21,7 @@ _git_is_dirty() {
     [ -n "$(git status -s --untracked-files=no)" ]
 }
 
-if [[ $YOR_EXIT_CODE -eq 0 || $INPUT_COMMIT_CHANGES != "YES" ]]
+if [[ $YOR_EXIT_CODE -eq 0 && $INPUT_COMMIT_CHANGES != "YES" ]]
 then
   if _git_is_dirty
   then
