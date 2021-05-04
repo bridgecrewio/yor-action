@@ -21,11 +21,11 @@ _git_is_dirty() {
     [ -n "$(git status -s --untracked-files=no)" ]
 }
 
-if [[ $YOR_EXIT_CODE -eq 0 && $INPUT_COMMIT_CHANGES != "YES" ]]
+if [[ $YOR_EXIT_CODE -eq 0 && $INPUT_COMMIT_CHANGES == "YES" ]]
 then
   if _git_is_dirty
   then
-    echo "Git is dirty"
+    echo "Yor made changes, committing"
     git add .
     git -c user.name=actions@github.com -c user.email="GitHub Actions" \
         commit -m "Update tags (by Yor)" \
