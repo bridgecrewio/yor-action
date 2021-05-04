@@ -16,4 +16,26 @@ echo "running yor on directory: $INPUT_DIRECTORY"
 /go/yor/yor tag -d "$INPUT_DIRECTORY" "$TAG_FLAG" "$TAG_GROUPS" "$SKIP_TAG_FLAG" "$SKIP_DIR_FLAG" "$EXT_TAGS_FLAG" "$OUTPUT_FLAG"
 rm -rf .yor_plugins
 YOR_EXIT_CODE=$?
-exit $YOR_EXIT_CODE
+
+_git_is_dirty() {
+    [ -n "$(git status -s --untracked-files=no)" ]
+}
+
+if [[ $YOR_EXIT_CODE -eq 0 && $INPUT_COMMIT_CHANGES == "YES" ]]
+then
+  if _git_is_dirty
+  then
+    echo "Yor made changes, committing"
+    git add .
+    git -c user.name=actions@github.com -c user.email="GitHub Actions" \
+        commit -m "Update tags (by Yor)" \
+        --author="github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>" ;
+    echo "Changes committed, pushing..."
+    git push origin
+  fi
+else
+  echo "::debug::exiting, yor failed or commit is skipped"
+  echo "::debug::yor exit code: $YOR_EXIT_CODE"
+  echo "::debug::commit_changes: $INPUT_COMMIT_CHANGES"
+  exit $YOR_EXIT_CODE
+fi

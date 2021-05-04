@@ -26,6 +26,10 @@ inputs:
   log_level:
     description: 'log level'
     required: false
+  commit_changes:
+    description: 'Choose whether the action will commit changes. Changes will be commited if this is exactly "YES"'
+    default: YES
+    required: false
 
 branding:
   icon: 'shield'
