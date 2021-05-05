@@ -1,4 +1,4 @@
-FROM bridgecrew/yor:0.1.13
+FROM bridgecrew/yor:0.1.14
 
 MAINTAINER bridgecrew.io
 
