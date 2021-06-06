@@ -37,7 +37,9 @@ branding:
 
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+#   image: 'Dockerfile'
+  image: 'docker://bridgecrew:yor'
+
   args:
     - ${{ inputs.directory }}
     - ${{ inputs.tag_groups }}
