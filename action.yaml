@@ -37,9 +37,9 @@ branding:
 
 runs:
   using: 'docker'
-#   image: 'Dockerfile'
-  image: 'docker://bridgecrew/yor'
-  entrypoint: 'entrypoint.sh'
+  image: 'Dockerfile'
+#   image: 'docker://bridgecrew/yor'
+#   entrypoint: 'entrypoint.sh'
 
   args:
     - ${{ inputs.directory }}
