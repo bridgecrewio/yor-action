@@ -13,7 +13,7 @@
 [[ -d ".yor_plugins" ]] && echo "Directory .yor_plugins exists, and will be overwritten by yor. Please rename this directory."
 
 echo "running yor on directory: $INPUT_DIRECTORY"
-/go/yor/yor tag -d "$INPUT_DIRECTORY" "$TAG_FLAG" "$TAG_GROUPS" "$SKIP_TAG_FLAG" "$SKIP_DIR_FLAG" "$EXT_TAGS_FLAG" "$OUTPUT_FLAG"
+/usr/bin/yor tag -d "$INPUT_DIRECTORY" "$TAG_FLAG" "$TAG_GROUPS" "$SKIP_TAG_FLAG" "$SKIP_DIR_FLAG" "$EXT_TAGS_FLAG" "$OUTPUT_FLAG"
 rm -rf .yor_plugins
 YOR_EXIT_CODE=$?
 
