@@ -39,7 +39,7 @@ runs:
   using: 'docker'
 #   image: 'Dockerfile'
   image: 'docker://bridgecrew/yor'
-  entrypoint: 'github_action_entrypoint.sh'
+  entrypoint: '/usr/bin/github_action_entrypoint.sh'
 
   args:
     - ${{ inputs.directory }}
