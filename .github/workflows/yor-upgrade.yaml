@@ -1,0 +1,19 @@
+name: yor-upgrade
+on:
+  repository_dispatch:
+  workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
+
+jobs:
+  update-yor-version:
+    runs-on: [ self-hosted, public, linux, x64 ]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Update version
+        run: |
+          version=$(curl -s https://api.github.com/repos/bridgecrewio/yor/releases/latest | jq -r '.name')
+          sed -i'.bkp' -e 's/docker:\/\/bridgecrew\/yor.*'\''/docker:\/\/bridgecrew\/yor:'"${version}"''\''/g' action.yaml
+          rm action.yaml.bkp
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Bump yor container version
+
