@@ -30,6 +30,9 @@ inputs:
     description: 'Choose whether the action will commit changes. Changes will be commited if this is exactly "YES"'
     default: YES
     required: false
+  config_file:
+    description: 'The path to the config file which describes more configurations such as custom tag groups'
+    required: false
 
 branding:
   icon: 'shield'
@@ -48,3 +51,4 @@ runs:
     - ${{ inputs.custom_tags }}
     - ${{ inputs.output_format }}
     - ${{ inputs.log_level }}
+    - ${{ inputs.config_file }}
