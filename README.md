@@ -23,7 +23,11 @@ jobs:
 ```
 
 Note that this example uses the latest version (`main`).
-
+and that fetch-depth: 0 on checkout is required for yor
+```yaml
+        with:
+          fetch-depth: 0
+```
 ### Complex Examples
 #### Using tag + tag_groups Parameters
 ```yaml
