@@ -40,7 +40,7 @@ branding:
 
 runs:
   using: 'docker'
-  image: 'docker://bridgecrew/yor:0.1.122'
+  image: 'docker://bridgecrew/yor:0.1.123'
 
   args:
     - ${{ inputs.directory }}
