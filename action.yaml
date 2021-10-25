@@ -17,6 +17,9 @@ inputs:
   skip_dirs:
     description: 'comma delimited list of paths for yor to skip tagging of'
     required: false
+  skip_resource_types:
+    description: 'comma delimited list of resource types to skip for tagging'
+    required: false
   custom_tags:
     description: 'comma delimited list of paths to external (custom) tags & tag groups plugins'
     required: false
@@ -48,6 +51,7 @@ runs:
     - ${{ inputs.tag }}
     - ${{ inputs.skip_tags }}
     - ${{ inputs.skip_dirs }}
+    - ${{ inputs.skip_resource_types }}
     - ${{ inputs.custom_tags }}
     - ${{ inputs.output_format }}
     - ${{ inputs.log_level }}
