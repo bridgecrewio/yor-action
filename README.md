@@ -42,6 +42,7 @@ jobs:
       - name: Run yor action
         uses: bridgecrewio/yor-action@main
         with:
+          version: 0.1.129
           directory: path/to/iac
           skip_directory: test
           log_level: DEBUG
