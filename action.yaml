@@ -26,9 +26,6 @@ inputs:
   output_format:
     description: 'The format of the output. cli, json'
     required: false
-  log_level:
-    description: 'log level'
-    required: false
   commit_changes:
     description: 'Choose whether the action will commit changes. Changes will be commited if this is exactly "YES"'
     default: YES

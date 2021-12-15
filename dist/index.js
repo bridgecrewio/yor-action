@@ -66,10 +66,6 @@ function run() {
             getArgs('--output', 'output_format'),
             getArgs('--config-file', 'config_file')
         ].flat();
-        const logLevel = core.getInput('log_level');
-        if (logLevel) {
-            process.env['LOG_LEVEL'] = logLevel;
-        }
         // Downloading Yor
         const yorExactVersion = yorVersion === 'latest' ? yield utils.getLatestReleaseVersion() : yorVersion;
         const downloadUrl = utils.getDownloadUrl(yorExactVersion);
