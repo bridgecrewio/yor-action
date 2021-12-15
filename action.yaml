@@ -27,8 +27,8 @@ inputs:
     description: 'The format of the output. cli, json'
     required: false
   commit_changes:
-    description: 'Choose whether the action will commit changes. Changes will be commited if this is exactly "YES"'
-    default: YES
+    description: 'Choose whether the action will commit changes.'
+    default: true
     required: false
   config_file:
     description: 'The path to the config file which describes more configurations such as custom tag groups'

@@ -52,7 +52,7 @@ function getArgs(flag, input) {
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         const yorVersion = core.getInput('version');
-        const commitChanges = core.getInput('commit_changes') === 'YES';
+        const commitChanges = core.getBooleanInput('commit_changes');
         // Computing args
         const yorArgs = [
             'tag',

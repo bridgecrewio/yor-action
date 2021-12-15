@@ -12,7 +12,7 @@ function getArgs(flag: string, input: string): string[] {
 
 async function run(): Promise<void> {
   const yorVersion = core.getInput('version')
-  const commitChanges = core.getInput('commit_changes') === 'YES'
+  const commitChanges = core.getBooleanInput('commit_changes')
 
   // Computing args
   const yorArgs: string[] = [

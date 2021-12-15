@@ -90,5 +90,5 @@ jobs:
       - name: Run yor action
         uses: bridgecrewio/yor-action@main
         with:
-          commit_changes: NO # Any value which is not YES (which is the default value) will lead to no commit
+          commit_changes: false
 ```
