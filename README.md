@@ -41,10 +41,12 @@ jobs:
           fetch-depth: 0
       - name: Run yor action
         uses: bridgecrewio/yor-action@main
+        env:
+          LOG_LEVEL: DEBUG
         with:
+          version: 0.1.129
           directory: path/to/iac
           skip_directory: test
-          log_level: DEBUG
           tag: git_modifiers,git_commit,git_repository,yor_trace
           tag_groups: git,code2cloud
           custom_tags: path/to/plugin.so
@@ -63,10 +65,11 @@ jobs:
           fetch-depth: 0
       - name: Run yor action
         uses: bridgecrewio/yor-action@main
+        env:
+          LOG_LEVEL: DEBUG
         with:
           directory: path/to/iac
           skip_directory: test
-          log_level: DEBUG
           skip_tags: git_modifiers,git_commit,git_repository
           tag_groups: git
           custom_tags: path/to/plugin.so
@@ -87,5 +90,5 @@ jobs:
       - name: Run yor action
         uses: bridgecrewio/yor-action@main
         with:
-          commit_changes: NO # Any value which is not YES (which is the default value) will lead to no commit
+          commit_changes: false
 ```

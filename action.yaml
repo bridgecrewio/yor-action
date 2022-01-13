@@ -26,15 +26,16 @@ inputs:
   output_format:
     description: 'The format of the output. cli, json'
     required: false
-  log_level:
-    description: 'log level'
-    required: false
   commit_changes:
-    description: 'Choose whether the action will commit changes. Changes will be commited if this is exactly "YES"'
-    default: YES
+    description: 'Choose whether the action will commit changes.'
+    default: true
     required: false
   config_file:
     description: 'The path to the config file which describes more configurations such as custom tag groups'
+    required: false
+  version:
+    description: 'The yor version. Can be `latest` or a full version like `0.1.129`'
+    default: latest
     required: false
 
 branding:
@@ -42,17 +43,5 @@ branding:
   color: 'purple'
 
 runs:
-  using: 'docker'
-  image: 'docker://bridgecrew/yor:0.1.131'
-
-  args:
-    - ${{ inputs.directory }}
-    - ${{ inputs.tag_groups }}
-    - ${{ inputs.tag }}
-    - ${{ inputs.skip_tags }}
-    - ${{ inputs.skip_dirs }}
-    - ${{ inputs.skip_resource_types }}
-    - ${{ inputs.custom_tags }}
-    - ${{ inputs.output_format }}
-    - ${{ inputs.log_level }}
-    - ${{ inputs.config_file }}
+  using: 'node16'
+  main: 'dist/index.js'
