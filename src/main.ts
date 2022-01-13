@@ -11,6 +11,7 @@ function getArgs(flag: string, input: string): string[] {
 }
 
 async function run(): Promise<void> {
+  await exec.exec(`git checkout ${process.env.GITHUB_REF_NAME}`)
   const yorVersion = core.getInput('version')
   const commitChanges = core.getBooleanInput('commit_changes')
 
