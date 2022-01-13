@@ -51,6 +51,7 @@ function getArgs(flag, input) {
 }
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
+        yield exec.exec(`git checkout ${process.env.GITHUB_REF_NAME}`);
         const yorVersion = core.getInput('version');
         const commitChanges = core.getBooleanInput('commit_changes');
         // Computing args
