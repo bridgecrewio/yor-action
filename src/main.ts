@@ -11,7 +11,11 @@ function getArgs(flag: string, input: string): string[] {
 }
 
 async function run(): Promise<void> {
-  await exec.exec(`git checkout ${process.env.GITHUB_REF_NAME}`)
+  const githubRef =
+    process.env.GITHUB_EVENT_NAME === 'pull_request'
+      ? process.env.GITHUB_HEAD_REF
+      : process.env.GITHUB_REF_NAME
+  await exec.exec(`git checkout ${githubRef}`)
   const yorVersion = core.getInput('version')
   const commitChanges = core.getBooleanInput('commit_changes')
 
