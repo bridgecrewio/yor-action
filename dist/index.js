@@ -78,6 +78,7 @@ function run() {
         const pathToCLI = yield extractFn(pathToTarball);
         // Executing Yor
         const pathToYor = path_1.default.join(pathToCLI, 'yor');
+        yield exec.exec(pathToYor, ['-v']);
         const exitCode = yield exec.exec(pathToYor, yorArgs);
         if (exitCode > 0) {
             core.setFailed(`Yor failed with ${exitCode}`);

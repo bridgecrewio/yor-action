@@ -43,6 +43,7 @@ async function run(): Promise<void> {
 
   // Executing Yor
   const pathToYor = path.join(pathToCLI, 'yor')
+  await exec.exec(pathToYor, ['-v'])
   const exitCode = await exec.exec(pathToYor, yorArgs)
 
   if (exitCode > 0) {
