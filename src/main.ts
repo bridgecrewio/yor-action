@@ -24,7 +24,7 @@ async function run(): Promise<void> {
     'tag',
     getArgs('-d', 'directory'),
     getArgs('--tag-groups', 'tag_groups'),
-    getArgs('--tag', 'tag'),
+    getArgs('--tags', 'tags'),
     getArgs('--skip-tags', 'skip_tags'),
     getArgs('--skip-dirs', 'skip_dirs'),
     getArgs('--skip-resource-types', 'skip_resource_types'),

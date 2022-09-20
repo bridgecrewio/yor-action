@@ -8,7 +8,7 @@ inputs:
   tag_groups:
     description: 'Run scan on all checks but a specific check identifier (comma separated)'
     required: false
-  tag:
+  tags:
     description: 'comma delimited list of yor tags to apply'
     required: false
   skip_tags:
