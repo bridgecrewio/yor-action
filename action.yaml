@@ -37,6 +37,12 @@ inputs:
     description: 'The yor version. Can be `latest` or a full version like `0.1.129`'
     default: latest
     required: false
+  skip_resources:
+    description: 'skip resources for tagging'
+    required: false
+  parsers:
+    description: 'IAC types to tag (default: "Terraform", "CloudFormation", "Serverless")'
+    required: false
 
 branding:
   icon: 'shield'

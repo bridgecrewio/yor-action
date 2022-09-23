@@ -68,7 +68,9 @@ function run() {
             getArgs('--skip-resource-types', 'skip_resource_types'),
             getArgs('--custom-tagging', 'custom_tags'),
             getArgs('--output', 'output_format'),
-            getArgs('--config-file', 'config_file')
+            getArgs('--config-file', 'config_file'),
+            getArgs('--skip-resources', 'skip_resources'),
+            getArgs('--parsers', 'parsers')
         ].flat();
         // Downloading Yor
         const yorExactVersion = yorVersion === 'latest' ? yield utils.getLatestReleaseVersion() : yorVersion;

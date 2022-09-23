@@ -30,7 +30,9 @@ async function run(): Promise<void> {
     getArgs('--skip-resource-types', 'skip_resource_types'),
     getArgs('--custom-tagging', 'custom_tags'),
     getArgs('--output', 'output_format'),
-    getArgs('--config-file', 'config_file')
+    getArgs('--config-file', 'config_file'),
+    getArgs('--skip-resources', 'skip_resources'),
+    getArgs('--parsers', 'parsers')
   ].flat()
 
   // Downloading Yor
