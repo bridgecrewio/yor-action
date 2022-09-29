@@ -24,13 +24,15 @@ async function run(): Promise<void> {
     'tag',
     getArgs('-d', 'directory'),
     getArgs('--tag-groups', 'tag_groups'),
-    getArgs('--tag', 'tag'),
+    getArgs('--tags', 'tags'),
     getArgs('--skip-tags', 'skip_tags'),
     getArgs('--skip-dirs', 'skip_dirs'),
     getArgs('--skip-resource-types', 'skip_resource_types'),
     getArgs('--custom-tagging', 'custom_tags'),
     getArgs('--output', 'output_format'),
-    getArgs('--config-file', 'config_file')
+    getArgs('--config-file', 'config_file'),
+    getArgs('--skip-resources', 'skip_resources'),
+    getArgs('--parsers', 'parsers')
   ].flat()
 
   // Downloading Yor

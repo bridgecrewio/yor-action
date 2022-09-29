@@ -8,7 +8,7 @@ inputs:
   tag_groups:
     description: 'Run scan on all checks but a specific check identifier (comma separated)'
     required: false
-  tag:
+  tags:
     description: 'comma delimited list of yor tags to apply'
     required: false
   skip_tags:
@@ -36,6 +36,12 @@ inputs:
   version:
     description: 'The yor version. Can be `latest` or a full version like `0.1.129`'
     default: latest
+    required: false
+  skip_resources:
+    description: 'skip resources for tagging'
+    required: false
+  parsers:
+    description: 'IAC types to tag (default: "Terraform", "CloudFormation", "Serverless")'
     required: false
 
 branding:
