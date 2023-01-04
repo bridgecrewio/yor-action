@@ -32,7 +32,7 @@ async function run(): Promise<void> {
     getArgs('--output', 'output_format'),
     getArgs('--config-file', 'config_file'),
     getArgs('--skip-resources', 'skip_resources'),
-    getArgs('--parsers', 'parsers')
+    getArgs('--parsers', 'parsers'),
     getArgs('--tag-modules', 'tag_modules')
   ].flat()
 
