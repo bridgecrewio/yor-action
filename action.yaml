@@ -43,6 +43,10 @@ inputs:
   parsers:
     description: 'IAC types to tag (default: "Terraform", "CloudFormation", "Serverless")'
     required: false
+  tag_local_modules:
+    description: 'Always tag local modules'
+    default: false
+    required: false
 
 branding:
   icon: 'shield'
