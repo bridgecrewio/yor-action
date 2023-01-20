@@ -15,9 +15,17 @@ jobs:
       - name: Tag Terraform
         uses: ./
         with:
+          commit_changes: false
           directory: tests/terraform
           output_format: json
 
       - name: Check tags applied
         run: |
-          grep "yor_trace" tests/terraform/main.tf
+          grep -F "git_commit" tests/terraform/main.tf
+          grep -F "git_file" tests/terraform/main.tf
+          grep -F "git_last_modified_at" tests/terraform/main.tf
+          grep -F "git_last_modified_by" tests/terraform/main.tf
+          grep -F "git_modifiers" tests/terraform/main.tf
+          grep -F "git_org" tests/terraform/main.tf
+          grep -F "git_repo" tests/terraform/main.tf
+          grep -F "yor_trace" tests/terraform/main.tf
