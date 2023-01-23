@@ -1,0 +1,32 @@
+name: PR
+
+on: pull_request
+
+permissions: read-all
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c  # v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Tag Terraform
+        uses: ./
+        with:
+          commit_changes: false
+          directory: tests/terraform
+          output_format: json
+
+      - name: Check tags applied
+        run: |
+          grep -F "git_commit" tests/terraform/main.tf
+          grep -F "git_file" tests/terraform/main.tf
+          grep -F "git_last_modified_at" tests/terraform/main.tf
+          grep -F "git_last_modified_by" tests/terraform/main.tf
+          grep -F "git_modifiers" tests/terraform/main.tf
+          grep -F "git_org" tests/terraform/main.tf
+          grep -F "git_repo" tests/terraform/main.tf
+          grep -F "yor_trace" tests/terraform/main.tf
