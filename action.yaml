@@ -47,6 +47,9 @@ inputs:
     description: 'Always tag local modules'
     default: false
     required: false
+  tag_prefix:
+    description: 'Add prefix to all the tags'
+    required: false
 
 branding:
   icon: 'shield'
