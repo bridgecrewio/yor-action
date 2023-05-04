@@ -33,7 +33,8 @@ async function run(): Promise<void> {
     getArgs('--config-file', 'config_file'),
     getArgs('--skip-resources', 'skip_resources'),
     getArgs('--parsers', 'parsers'),
-    getArgs('--tag-local-modules', 'tag_local_modules')
+    getArgs('--tag-local-modules', 'tag_local_modules'),
+    getArgs('--tag-prefix', 'tag_prefix')
   ].flat()
 
   // Downloading Yor
