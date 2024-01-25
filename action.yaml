@@ -51,7 +51,7 @@ inputs:
     description: 'Add prefix to all the tags'
     required: false
   validate:
-    description: 'Just validate the tags'
+    description: 'Just validate the tags & dry-run'
     required: false
 
 branding:

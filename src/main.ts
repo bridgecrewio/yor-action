@@ -34,9 +34,13 @@ async function run(): Promise<void> {
     getArgs('--skip-resources', 'skip_resources'),
     getArgs('--parsers', 'parsers'),
     getArgs('--tag-prefix', 'tag_prefix'),
-    getArgs('--tag-local-modules', 'tag_local_modules'),
-    getArgs('--validate', 'validate')
+    getArgs('--tag-local-modules', 'tag_local_modules')
   ].flat()
+
+  if (core.getInput('validate')) {
+    yorArgs.push('--validate')
+    yorArgs.push('--dry-run')
+  }
 
   // Downloading Yor
   const yorExactVersion =

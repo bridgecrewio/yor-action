@@ -77,8 +77,11 @@ function run() {
             getArgs('--parsers', 'parsers'),
             getArgs('--tag-prefix', 'tag_prefix'),
             getArgs('--tag-local-modules', 'tag_local_modules'),
-            getArgs('--validate', 'validate'),
         ].flat();
+        if (core.getInput('validate')) {
+            yorArgs.push('--validate');
+            yorArgs.push('--dry-run');
+        }
         // Downloading Yor
         const yorExactVersion = yorVersion === 'latest' ? yield utils.getLatestReleaseVersion() : yorVersion;
         const downloadUrl = utils.getDownloadUrl(yorExactVersion);
