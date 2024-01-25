@@ -34,7 +34,8 @@ async function run(): Promise<void> {
     getArgs('--skip-resources', 'skip_resources'),
     getArgs('--parsers', 'parsers'),
     getArgs('--tag-prefix', 'tag_prefix'),
-    getArgs('--tag-local-modules', 'tag_local_modules')
+    getArgs('--tag-local-modules', 'tag_local_modules'),
+    getArgs('--validate', 'validate')
   ].flat()
 
   // Downloading Yor

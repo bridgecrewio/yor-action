@@ -50,6 +50,9 @@ inputs:
   tag_prefix:
     description: 'Add prefix to all the tags'
     required: false
+  validate:
+    description: 'Just validate the tags'
+    required: false
 
 branding:
   icon: 'shield'
