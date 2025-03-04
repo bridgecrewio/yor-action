@@ -58,7 +58,7 @@ function run() {
         const githubRef = process.env.GITHUB_EVENT_NAME === 'pull_request'
             ? process.env.GITHUB_HEAD_REF
             : process.env.GITHUB_REF_NAME;
-        yield exec.exec(`git switch ${githubRef}`);
+        yield exec.exec(`git switch --detach ${githubRef}`);
         const yorVersion = core.getInput('version');
         const commitChanges = core.getBooleanInput('commit_changes');
         // Computing args

@@ -15,7 +15,7 @@ async function run(): Promise<void> {
     process.env.GITHUB_EVENT_NAME === 'pull_request'
       ? process.env.GITHUB_HEAD_REF
       : process.env.GITHUB_REF_NAME
-  await exec.exec(`git switch ${githubRef}`)
+  await exec.exec(`git switch --detach ${githubRef}`)
   const yorVersion = core.getInput('version')
   const commitChanges = core.getBooleanInput('commit_changes')
 
