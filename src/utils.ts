@@ -45,7 +45,9 @@ export function getDownloadUrl(version: string): string {
 }
 
 export async function getLatestReleaseVersion(): Promise<string> {
-  const octokit = new Octokit()
+  const token = process.env.GITHUB_TOKEN
+  const octokit = token ? new Octokit({ auth: token }) : new Octokit()
+  
   const response = await octokit.rest.repos.getLatestRelease({
     owner: 'bridgecrewio',
     repo: 'yor'
