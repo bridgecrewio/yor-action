@@ -36,6 +36,7 @@ async function run(): Promise<void> {
     getArgs('--tag-prefix', 'tag_prefix'),
     getArgs('--tag-local-modules', 'tag_local_modules')
   ].flat()
+  const workingDirectory = core.getInput('working-directory')
 
   // Downloading Yor
   const yorExactVersion =
@@ -48,6 +49,7 @@ async function run(): Promise<void> {
   // Executing Yor
   const pathToYor = path.join(pathToCLI, 'yor')
   await exec.exec(pathToYor, ['-v'])
+  await exec.exec('cd ' + workingDirectory)
   const exitCode = await exec.exec(pathToYor, yorArgs)
 
   if (exitCode > 0) {

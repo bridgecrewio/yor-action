@@ -5,6 +5,10 @@ inputs:
     description: 'directory with infrastructure code to scan'
     default: '.'
     required: false
+  working-directory:
+    description: 'action working directory (should be root of repository so that git blame works properly)'
+    default: '.'
+    required: false
   tag_groups:
     description: 'Run scan on all checks but a specific check identifier (comma separated)'
     required: false

@@ -78,6 +78,7 @@ function run() {
             getArgs('--tag-prefix', 'tag_prefix'),
             getArgs('--tag-local-modules', 'tag_local_modules')
         ].flat();
+        const workingDirectory = core.getInput('working-directory');
         // Downloading Yor
         const yorExactVersion = yorVersion === 'latest' ? yield utils.getLatestReleaseVersion() : yorVersion;
         const downloadUrl = utils.getDownloadUrl(yorExactVersion);
@@ -87,6 +88,7 @@ function run() {
         // Executing Yor
         const pathToYor = path_1.default.join(pathToCLI, 'yor');
         yield exec.exec(pathToYor, ['-v']);
+        yield exec.exec('cd ' + workingDirectory);
         const exitCode = yield exec.exec(pathToYor, yorArgs);
         if (exitCode > 0) {
             core.setFailed(`Yor failed with ${exitCode}`);
