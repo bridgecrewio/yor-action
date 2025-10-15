@@ -28,7 +28,7 @@ inputs:
     required: false
   commit_changes:
     description: 'Choose whether the action will commit changes.'
-    default: true
+    default: 'true'
     required: false
   config_file:
     description: 'The path to the config file which describes more configurations such as custom tag groups'
@@ -45,10 +45,13 @@ inputs:
     required: false
   tag_local_modules:
     description: 'Always tag local modules'
-    default: false
+    default: 'false'
     required: false
   tag_prefix:
     description: 'Add prefix to all the tags'
+    required: false
+  github_token:
+    description: A GitHub token to allow authenticated requests to the GitHub API
     required: false
 
 branding:
@@ -56,5 +59,5 @@ branding:
   color: 'purple'
 
 runs:
-  using: 'node16'
+  using: 'node24'
   main: 'dist/index.js'

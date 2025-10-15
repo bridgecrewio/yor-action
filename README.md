@@ -6,6 +6,14 @@
 This GitHub Action runs [Yor](https://github.com/bridgecrewio/yor) against an Infrastructure-as-Code repository.
 Yor applies tags to your infrastructure allowing easier governance, ownership and visibility.
 
+## Environment Variables
+
+The [`bridgecrewio/yor-action`](https://github.com/bridgecrewio/yor-action) GitHub Action supports the following environment variables:
+
+| Name           | Description                                                                        | Required |
+| -------------- | ---------------------------------------------------------------------------------- | -------- |
+| `GITHUB_TOKEN` | GitHub token to authenticate with the GitHub API (optional, increases rate limits) | false    |
+
 ## Example usage
 
 ### Simple Example
